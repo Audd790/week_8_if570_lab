@@ -14,7 +14,7 @@ class GameViewModel: ViewModel() {
         get() = _score
     val currentScrambledWord:String
         get() = _currentScrambledWord
-    fun getNextWord()
+    private fun getNextWord()
     {
         currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
@@ -27,7 +27,7 @@ class GameViewModel: ViewModel() {
         } else {
             _currentScrambledWord = String(tempWord)
             ++currentWordCount
-            wordList!!.add(currentWord)
+            wordList.add(currentWord)
         }
     }
 
@@ -35,15 +35,31 @@ class GameViewModel: ViewModel() {
     {
         return if (currentWordCount < MAX_NO_OF_WORDS){
             getNextWord()
-            true } else false
+            true
+        } else false
     }
-    init {
-        Log.d("GameFragment", "GameViewModel created!")
-        getNextWord()
+
+    private fun increaseScore()
+    {
+        _score += SCORE_INCREASE
+    }
+
+    fun isUserWordCorrect(playersWord : String):Boolean {
+        if (playersWord.equals(currentWord, true)){
+            increaseScore()
+            Log.d("check_scord", "Score: $_score")
+            return true
+        }
+        return false
     }
 
     override fun onCleared() {
         super.onCleared()
         Log.d("GameFragment", "GameViewModel destroyed!")
+    }
+
+    init {
+        Log.d("GameFragment", "GameViewModel created!")
+        getNextWord()
     }
 }
