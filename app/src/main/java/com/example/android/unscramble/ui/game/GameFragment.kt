@@ -75,11 +75,6 @@ class GameFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("GameFragment", "GameFragment destroyed!")
-    }
-
     /*
     * Checks the user's word, and updates the score accordingly.
     * Displays the next scrambled word.
@@ -107,14 +102,6 @@ class GameFragment : Fragment() {
         }
     }
 
-    /*
-     * Gets a random word for the list of words and shuffles the letters in it.
-     */
-    private fun getNextScrambledWord(): String {
-        val tempWord = allWordsList.random().toCharArray()
-        tempWord.shuffle()
-        return String(tempWord)
-    }
 
     /*
      * Re-initializes the data in the ViewModel and updates the views with the new data, to

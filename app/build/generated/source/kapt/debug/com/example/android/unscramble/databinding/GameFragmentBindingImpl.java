@@ -110,7 +110,7 @@ public class GameFragmentBindingImpl extends GameFragmentBinding  {
             case 1 :
                 return onChangeGameViewModelCurrentWordCount((androidx.lifecycle.LiveData<java.lang.Integer>) object, fieldId);
             case 2 :
-                return onChangeGameViewModelCurrentScrambledWord((androidx.lifecycle.LiveData<java.lang.String>) object, fieldId);
+                return onChangeGameViewModelCurrentScrambledWord((androidx.lifecycle.LiveData<android.text.Spannable>) object, fieldId);
         }
         return false;
     }
@@ -132,7 +132,7 @@ public class GameFragmentBindingImpl extends GameFragmentBinding  {
         }
         return false;
     }
-    private boolean onChangeGameViewModelCurrentScrambledWord(androidx.lifecycle.LiveData<java.lang.String> GameViewModelCurrentScrambledWord, int fieldId) {
+    private boolean onChangeGameViewModelCurrentScrambledWord(androidx.lifecycle.LiveData<android.text.Spannable> GameViewModelCurrentScrambledWord, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x4L;
@@ -151,10 +151,10 @@ public class GameFragmentBindingImpl extends GameFragmentBinding  {
         }
         androidx.lifecycle.LiveData<java.lang.Integer> gameViewModelScore = null;
         java.lang.Integer gameViewModelCurrentWordCountGetValue = null;
-        java.lang.String gameViewModelCurrentScrambledWordGetValue = null;
+        android.text.Spannable gameViewModelCurrentScrambledWordGetValue = null;
         androidx.lifecycle.LiveData<java.lang.Integer> gameViewModelCurrentWordCount = null;
         java.lang.String scoreAndroidStringScoreGameViewModelScore = null;
-        androidx.lifecycle.LiveData<java.lang.String> gameViewModelCurrentScrambledWord = null;
+        androidx.lifecycle.LiveData<android.text.Spannable> gameViewModelCurrentScrambledWord = null;
         java.lang.String wordCountAndroidStringWordCountGameViewModelCurrentWordCountMaxNoOfWords = null;
         java.lang.Integer gameViewModelScoreGetValue = null;
         com.example.android.unscramble.ui.game.GameViewModel gameViewModel = mGameViewModel;
